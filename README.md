@@ -1,0 +1,1 @@
+## automateInventory project
