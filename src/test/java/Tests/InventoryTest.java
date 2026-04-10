@@ -94,9 +94,14 @@ public class InventoryTest extends Base{
 
 
     @Test(dependsOnMethods = "verifyUnitPriceFor128GB()")
-    public void selectColor(String colorName) {
-        practicePage.selectColor(colorName);
+    public void selectColor() {
+        practicePage.selectColor("Blue");
     }
+
+
+//    public void selectColor(String colorName) {
+//        practicePage.selectColor("Blue");
+//    }
 
 
     @Test(dependsOnMethods = "selectColor")
@@ -105,9 +110,15 @@ public class InventoryTest extends Base{
     }
 
     @Test(dependsOnMethods = "verifyColorBlueIsApplied")
-    public void enterQuantity(String qty) {
+    public void enterQuantity() {
         practicePage.enterQuantity("2");
     }
+
+
+//    @Test(dependsOnMethods = "verifyColorBlueIsApplied")
+//    public void enterQuantity(String qty) {
+//        practicePage.enterQuantity("2");
+//    }
 
     @Test(dependsOnMethods = "enterQuantity")
     public void verifySubtotalForQuantityTwo() {
@@ -115,9 +126,10 @@ public class InventoryTest extends Base{
     }
 
     @Test(dependsOnMethods = "verifySubtotalForQuantityTwo")
-    public void enterDeliveryAddress(String address) {
-        enterDeliveryAddress("13 Test Street");
+    public void enterDeliveryAddress() {
+        practicePage.enterDeliveryAddress("13 Test Street");
     }
+
 
     @Test(dependsOnMethods = "enterDeliveryAddress")
     public void clickNextButton() {
@@ -140,7 +152,7 @@ public class InventoryTest extends Base{
     }
 
     @Test(dependsOnMethods = "selectOneYearWarranty")
-    public void applyDiscountCode(String code) {
+    public void applyDiscountCode() {
         practicePage.applyDiscountCode("SAVE10");
     }
 

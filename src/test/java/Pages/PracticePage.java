@@ -1,8 +1,10 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -148,9 +150,34 @@ public class PracticePage {
     }
 
     public void selectColor(String colorName) {
-        Select select = new Select(colorDropdown);
-        select.selectByVisibleText(colorName);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Click the dropdown
+        WebElement dropdown = wait.until(
+                ExpectedConditions.elementToBeClickable(colorDropdown)
+        );
+        dropdown.click();
+
+        // Click the option
+        By option = By.xpath("//*[text()='" + colorName + "']");
+        wait.until(ExpectedConditions.elementToBeClickable(option)).click();
     }
+
+
+
+
+//    public void selectColor(String colorName) {
+//
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        WebElement dropdown = wait.until(
+//                ExpectedConditions.visibilityOfElementLocated(colorDropdown)
+//        );
+//
+//        Select select = new Select(dropdown);
+//        select.selectByVisibleText(colorName);
+//    }
 
     public void verifyColorBlueIsApplied() {
         String expected = "blue";
@@ -174,6 +201,7 @@ public class PracticePage {
         Assert.assertEquals(actualSubtotal, expectedSubtotal,
                 "Subtotal is incorrect when quantity is 2");
     }
+
 
     public void enterDeliveryAddress(String address) {
         deliveryAddressInput.clear();
