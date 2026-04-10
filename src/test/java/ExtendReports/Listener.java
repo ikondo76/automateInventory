@@ -54,7 +54,7 @@ public class Listener implements ITestListener {
     @Override
     public void onStart(ITestContext result) {
         // Initialize the report using our manager class
-        extent = ExtentReportManager.extentReports();
+        extent = ExtendReportManager.extentReports();
 
     }
 }

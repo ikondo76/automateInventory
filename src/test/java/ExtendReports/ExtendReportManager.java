@@ -8,7 +8,7 @@ import java.io.File;
 
 public class ExtendReportManager {
 
-    private static final String reportDir = System.getProperty("user.dir") + "/Reports/ndosiAutomationReport.html";
+    private static final String reportDir = System.getProperty("user.dir") + "/Reports/automateInventoryReport.html";
 
     //Main reporting engine object (holds all test results)
     private static ExtentReports extentReports;
@@ -37,7 +37,7 @@ public class ExtendReportManager {
         extentSparkReporter.config().setTheme(Theme.DARK);
 
         // Set the big title/name shown at the top of the report
-        extentSparkReporter.config().setReportName("Ndosi Automation");
+        extentSparkReporter.config().setReportName("Inventory Automation");
 
         // Add useful system/environment information to the report
         // This helps when debugging (e.g., was it run on Windows or Mac?)
