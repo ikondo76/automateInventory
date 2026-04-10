@@ -14,16 +14,38 @@ public class TakeScreenshots {
 
     public void takeSnapShots(WebDriver driver, String screenShotName){
 
-        TakesScreenshot takeScreenshot = (TakesScreenshot) driver;
+        // Ensure folder exists
+        File folder = new File(screenshotDir);
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
 
+        TakesScreenshot takeScreenshot = (TakesScreenshot) driver;
         File src = takeScreenshot.getScreenshotAs(OutputType.FILE);
 
         File destination = new File(screenshotDir, screenShotName + ".jpeg");
 
-        try{
-            FileUtils.copyFile(src,destination);
+        try {
+            FileUtils.copyFile(src, destination);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+//    private static final String screenshotDir = System.getProperty("user.dir") + "/Screenshots";
+//
+//    public void takeSnapShots(WebDriver driver, String screenShotName){
+//
+//        TakesScreenshot takeScreenshot = (TakesScreenshot) driver;
+//
+//        File src = takeScreenshot.getScreenshotAs(OutputType.FILE);
+//
+//        File destination = new File(screenshotDir, screenShotName + ".jpeg");
+//
+//        try{
+//            FileUtils.copyFile(src,destination);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }
