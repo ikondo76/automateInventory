@@ -1,4 +1,4 @@
-package ExtendReports;
+package ExtentReports;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -54,7 +54,7 @@ public class Listener implements ITestListener {
     @Override
     public void onStart(ITestContext result) {
         // Initialize the report using our manager class
-        extent = ExtendReportManager.extentReports();
+        extent = ExtentReportManager.extentReports();
 
     }
 }

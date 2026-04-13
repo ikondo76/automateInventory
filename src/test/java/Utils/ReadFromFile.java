@@ -19,6 +19,7 @@ public class ReadFromFile {
         try {
             fs = new FileInputStream(testData);
         } catch (FileNotFoundException e) {
+            
             throw new RuntimeException(e);
         }
     }

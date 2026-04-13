@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Root element: represents the entire test execution run -->
+<suite name="All Test Suite">
+    <!-- Register your custom listeners here -->
+    <listeners>
+        <!-- Point to your listener class (package + class name) -->
+        <!-- TestNG will now automatically use it for all tests -->
+        <listener class-name="ExtentReports.Listener"></listener>
+    </listeners>
+    <!-- One <test> tag can group multiple classes (you can have many) -->
+    <test name="InventoryTest">
+        <!-- List of test classes to execute -->
+        <classes>
+            <!-- Fully qualified name: package.ClassName -->
+            <class name="Tests.InventoryTest"></class>
+        </classes>
+    </test>
+</suite>
